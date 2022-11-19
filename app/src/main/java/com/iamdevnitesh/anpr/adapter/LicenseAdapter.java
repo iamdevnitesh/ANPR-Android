@@ -48,24 +48,17 @@ public class LicenseAdapter extends RecyclerView.Adapter<LicenseAdapter.MyViewHo
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
         String current = formatter.format(date);
+        // storage refernce
         StorageReference anprStorage = FirebaseStorage.getInstance().getReference(current);
+        // license position
         License license = list.get(position);
+
+        // SETTING UP VALUES
         holder.license.setText("license :" + license.getLicense_plate());
         holder.date.setText("date :" + license.getDate());
-
-        // Get Google Storage URL
-        String url = license.getImage_Url();
+        //Using Glide to load image from firebase
+        String url = license.getImg_Url();
         Picasso.get().load(url).into(holder.image);
-
-
-
-        //Picasso.get().load(url).into(holder.image);
-
-        /*
-        //Using Picasso to load image from firebase gs:// links
-        Picasso picassoInstance= new  Picasso.Builder(context).addRequestHandler(new FireBaseRequestHandler()).build();
-        picassoInstance.load(license.getImage_Url()).into(holder.image);
-         */
     }
 
     @Override

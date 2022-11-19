@@ -27,13 +27,6 @@
         android:theme="@style/Theme.ANPR"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.iamdevnitesh.anpr.activity.LicenseListActivity"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name="com.iamdevnitesh.anpr.activity.AddUserActivity"
             android:exported="false" >
             <meta-data

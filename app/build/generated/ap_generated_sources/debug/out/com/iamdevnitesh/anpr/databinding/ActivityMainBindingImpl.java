@@ -14,9 +14,10 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.pdfView, 1);
+        sViewsWithIds.put(R.id.recyclerView, 1);
         sViewsWithIds.put(R.id.LinearLayoutBtns, 2);
-        sViewsWithIds.put(R.id.BtnGenerateReport, 3);
+        sViewsWithIds.put(R.id.FBtndateSelecter, 3);
+        sViewsWithIds.put(R.id.FBtndownload, 4);
     }
     // views
     @NonNull
@@ -27,13 +28,14 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityMainBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 4, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
     }
     private ActivityMainBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.Button) bindings[3]
+            , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[3]
+            , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[4]
             , (android.widget.LinearLayout) bindings[2]
-            , (com.github.barteksc.pdfviewer.PDFView) bindings[1]
+            , (androidx.recyclerview.widget.RecyclerView) bindings[1]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);

@@ -4,33 +4,38 @@ package com.iamdevnitesh.anpr.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
-import com.github.barteksc.pdfviewer.PDFView;
+import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.iamdevnitesh.anpr.R;
 import java.lang.Deprecated;
 import java.lang.Object;
 
 public abstract class ActivityMainBinding extends ViewDataBinding {
   @NonNull
-  public final Button BtnGenerateReport;
+  public final FloatingActionButton FBtndateSelecter;
+
+  @NonNull
+  public final FloatingActionButton FBtndownload;
 
   @NonNull
   public final LinearLayout LinearLayoutBtns;
 
   @NonNull
-  public final PDFView pdfView;
+  public final RecyclerView recyclerView;
 
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button BtnGenerateReport, LinearLayout LinearLayoutBtns, PDFView pdfView) {
+      FloatingActionButton FBtndateSelecter, FloatingActionButton FBtndownload,
+      LinearLayout LinearLayoutBtns, RecyclerView recyclerView) {
     super(_bindingComponent, _root, _localFieldCount);
-    this.BtnGenerateReport = BtnGenerateReport;
+    this.FBtndateSelecter = FBtndateSelecter;
+    this.FBtndownload = FBtndownload;
     this.LinearLayoutBtns = LinearLayoutBtns;
-    this.pdfView = pdfView;
+    this.recyclerView = recyclerView;
   }
 
   @NonNull

@@ -2694,8 +2694,10 @@ int drawable notification_tile_bg 0x7f0700e7
 int drawable notify_panel_notification_icon_bg 0x7f0700e8
 int drawable sample_license 0x7f0700e9
 int drawable svg_add_user 0x7f0700ea
+int drawable svg_calendar 0x7f0700f1
 int drawable svg_key 0x7f0700eb
 int drawable svg_log_out 0x7f0700ec
+int drawable svg_save 0x7f0700f2
 int drawable svg_user 0x7f0700ed
 int drawable test_level_drawable 0x7f0700ee
 int drawable tooltip_frame_dark 0x7f0700ef
@@ -2703,7 +2705,6 @@ int drawable tooltip_frame_light 0x7f0700f0
 int id ALT 0x7f080000
 int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
-int id BtnGenerateReport 0x7f080003
 int id BtnLogOut 0x7f080004
 int id BtnLogin 0x7f080005
 int id BtnRegister 0x7f080006
@@ -2712,6 +2713,8 @@ int id EdtTxtLayoutPassword 0x7f080008
 int id EdtTxtLayoutUserName 0x7f080009
 int id EdtTxtPassword 0x7f08000a
 int id EdtTxtUserName 0x7f08000b
+int id FBtndateSelecter 0x7f080201
+int id FBtndownload 0x7f080202
 int id FUNCTION 0x7f08000c
 int id LinearLayoutBtns 0x7f08000d
 int id META 0x7f08000e
@@ -3059,7 +3062,6 @@ int id parent_matrix 0x7f080163
 int id password_toggle 0x7f080164
 int id path 0x7f080165
 int id pathRelative 0x7f080166
-int id pdfView 0x7f080167
 int id peekHeight 0x7f080168
 int id percent 0x7f080169
 int id pin 0x7f08016a
@@ -3336,7 +3338,6 @@ int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
 int layout activity_add_user 0x7f0b001c
-int layout activity_license_list 0x7f0b001d
 int layout activity_login 0x7f0b001e
 int layout activity_main 0x7f0b001f
 int layout browser_actions_context_menu_page 0x7f0b0020

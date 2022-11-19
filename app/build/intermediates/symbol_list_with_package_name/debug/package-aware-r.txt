@@ -2695,8 +2695,10 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable sample_license
 drawable svg_add_user
+drawable svg_calendar
 drawable svg_key
 drawable svg_log_out
+drawable svg_save
 drawable svg_user
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -2704,7 +2706,6 @@ drawable tooltip_frame_light
 id ALT
 id BOTTOM_END
 id BOTTOM_START
-id BtnGenerateReport
 id BtnLogOut
 id BtnLogin
 id BtnRegister
@@ -2713,6 +2714,8 @@ id EdtTxtLayoutPassword
 id EdtTxtLayoutUserName
 id EdtTxtPassword
 id EdtTxtUserName
+id FBtndateSelecter
+id FBtndownload
 id FUNCTION
 id LinearLayoutBtns
 id META
@@ -3060,7 +3063,6 @@ id parent_matrix
 id password_toggle
 id path
 id pathRelative
-id pdfView
 id peekHeight
 id percent
 id pin
@@ -3337,7 +3339,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_add_user
-layout activity_license_list
 layout activity_login
 layout activity_main
 layout browser_actions_context_menu_page

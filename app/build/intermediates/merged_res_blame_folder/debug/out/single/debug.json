@@ -52,16 +52,16 @@
         "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\layout\\activity_license_list.xml"
     },
     {
+        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\drawable_svg_calendar.xml.flat",
+        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\drawable\\svg_calendar.xml"
+    },
+    {
         "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-hdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/layout_item_holder.xml.flat",
-        "source": "com.iamdevnitesh.anpr.app-main-41:/layout/item_holder.xml"
     },
     {
         "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\drawable_svg_user.xml.flat",
@@ -110,5 +110,13 @@
     {
         "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\menu_menu_bar.xml.flat",
         "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\menu\\menu_bar.xml"
+    },
+    {
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/drawable_svg_save.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/drawable/svg_save.xml"
+    },
+    {
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/layout_activity_main.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/layout/activity_main.xml"
     }
 ]

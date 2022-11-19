@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/btnAddUser"
+        android:title="Add User"
+        android:icon="@drawable/svg_add_user"
+        android:onClick="addUser"
+        />
+
+    <item android:id="@+id/BtnLogOut"
+        android:title="Log Out"
+        android:icon="@drawable/svg_log_out"
+        android:onClick="logOut"
+        />
+</menu>

@@ -205,6 +205,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\progr\\AndroidStudioProjects\\ANPR-Android\\app\\build\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,336,418,522,631,751,842",
+                        "endColumns": "143,136,81,103,108,119,90,67",
+                        "endOffsets": "194,331,413,517,626,746,837,905"
+                    },
+                    "to": {
+                        "startLines": "1746,1757,1758,1759,1760,1761,1762,1864",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "110981,111968,112105,112187,112291,112400,112520,127309",
+                        "endColumns": "143,136,81,103,108,119,90,67",
+                        "endOffsets": "111120,112100,112182,112286,112395,112515,112606,127372"
+                    }
+                },
+                {
                     "source": "C:\\Users\\progr\\.gradle\\caches\\transforms-3\\2a02df811c6fd372e87c4ef95db8305d\\transformed\\databinding-runtime-7.3.1\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2",
@@ -219,42 +236,6 @@
                         "startOffsets": "95969",
                         "endColumns": "40",
                         "endOffsets": "96005"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\progr\\AndroidStudioProjects\\ANPR\\app\\src\\main\\res\\values\\themes.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "100",
-                        "endLines": "14",
-                        "endColumns": "12",
-                        "endOffsets": "793"
-                    },
-                    "to": {
-                        "startLines": "5858",
-                        "startColumns": "4",
-                        "startOffsets": "399891",
-                        "endLines": "5870",
-                        "endColumns": "12",
-                        "endOffsets": "400463"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\progr\\AndroidStudioProjects\\ANPR\\app\\src\\main\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "7,2,3,4,5,6,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "286,55,102,149,196,241,328",
-                        "endColumns": "41,46,46,46,44,44,41",
-                        "endOffsets": "323,97,144,191,236,281,365"
-                    },
-                    "to": {
-                        "startLines": "611,848,849,850,861,862,865",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "31106,48173,48220,48267,49011,49056,49222",
-                        "endColumns": "41,46,46,46,44,44,41",
-                        "endOffsets": "31143,48215,48262,48309,49051,49096,49259"
                     }
                 },
                 {
@@ -366,6 +347,25 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\progr\\AndroidStudioProjects\\ANPR-Android\\app\\src\\main\\res\\values\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "102",
+                        "endLines": "14",
+                        "endColumns": "12",
+                        "endOffsets": "807"
+                    },
+                    "to": {
+                        "startLines": "5858",
+                        "startColumns": "4",
+                        "startOffsets": "399891",
+                        "endLines": "5870",
+                        "endColumns": "12",
+                        "endOffsets": "400463"
+                    }
+                },
+                {
                     "source": "C:\\Users\\progr\\.gradle\\caches\\transforms-3\\7941da3a4176cc86aa5dcbb619fbea47\\transformed\\browser-1.4.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11",
@@ -417,23 +417,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\progr\\AndroidStudioProjects\\ANPR\\app\\build\\generated\\res\\google-services\\debug\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,336,418,522,631,751,842",
-                        "endColumns": "143,136,81,103,108,119,90,67",
-                        "endOffsets": "194,331,413,517,626,746,837,905"
-                    },
-                    "to": {
-                        "startLines": "1746,1757,1758,1759,1760,1761,1762,1864",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "110981,111968,112105,112187,112291,112400,112520,127309",
-                        "endColumns": "143,136,81,103,108,119,90,67",
-                        "endOffsets": "111120,112100,112182,112286,112395,112515,112606,127372"
-                    }
-                },
-                {
                     "source": "C:\\Users\\progr\\.gradle\\caches\\transforms-3\\14621a386b20c825bf62b01149912eba\\transformed\\recyclerview-1.1.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
@@ -467,23 +450,6 @@
                         "startOffsets": "106839",
                         "endColumns": "82",
                         "endOffsets": "106917"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\progr\\AndroidStudioProjects\\ANPR\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "4",
-                        "startOffsets": "16",
-                        "endColumns": "41",
-                        "endOffsets": "53"
-                    },
-                    "to": {
-                        "startLines": "1715",
-                        "startColumns": "4",
-                        "startOffsets": "106922",
-                        "endColumns": "41",
-                        "endOffsets": "106959"
                     }
                 },
                 {
@@ -522,6 +488,40 @@
                         "endLines": "11786",
                         "endColumns": "24",
                         "endOffsets": "692277"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\progr\\AndroidStudioProjects\\ANPR-Android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "17",
+                        "endColumns": "41",
+                        "endOffsets": "54"
+                    },
+                    "to": {
+                        "startLines": "1715",
+                        "startColumns": "4",
+                        "startOffsets": "106922",
+                        "endColumns": "41",
+                        "endOffsets": "106959"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\progr\\AndroidStudioProjects\\ANPR-Android\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "7,2,3,4,5,6,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "293,57,105,153,201,247,336",
+                        "endColumns": "41,46,46,46,44,44,41",
+                        "endOffsets": "330,99,147,195,241,287,373"
+                    },
+                    "to": {
+                        "startLines": "611,848,849,850,861,862,865",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "31106,48173,48220,48267,49011,49056,49222",
+                        "endColumns": "41,46,46,46,44,44,41",
+                        "endOffsets": "31143,48215,48262,48309,49051,49096,49259"
                     }
                 }
             ]

@@ -1,115 +1,103 @@
 [
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\drawable_svg_add_user.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\drawable\\svg_add_user.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/layout_activity_login.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/layout/activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\xml\\backup_rules.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/drawable_svg_calendar.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/drawable/svg_calendar.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/menu_menu_bar.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/menu/menu_bar.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\xml\\data_extraction_rules.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\drawable_svg_key.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\drawable\\svg_key.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/layout_item_holder.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/layout/item_holder.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\layout_activity_license_list.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\layout\\activity_license_list.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/drawable-v24_sample_license.jpg.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/drawable-v24/sample_license.jpg"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\drawable_svg_calendar.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\drawable\\svg_calendar.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/drawable_svg_user.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/drawable/svg_user.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/xml_data_extraction_rules.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/drawable_svg_key.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/drawable/svg_key.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\drawable_svg_user.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\drawable\\svg_user.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/xml_backup_rules.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/xml/backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\drawable-v24_sample_license.jpg.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\drawable-v24\\sample_license.jpg"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-pngs-34:/drawable-anydpi-v24/ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-pngs-34:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/drawable_svg_log_out.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/drawable/svg_log_out.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\layout\\activity_main.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/layout_activity_add_user.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/layout/activity_add_user.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\layout_item_holder.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\layout\\item_holder.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\drawable_svg_log_out.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\drawable\\svg_log_out.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\layout\\activity_login.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\drawable\\ic_launcher_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\layout_activity_add_user.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\layout\\activity_add_user.xml"
-    },
-    {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\mipmap-xhdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-merged_res-39:\\menu_menu_bar.xml.flat",
-        "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-41:\\menu\\menu_bar.xml"
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
         "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/drawable_svg_save.xml.flat",
@@ -118,5 +106,9 @@
     {
         "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/layout_activity_main.xml.flat",
         "source": "com.iamdevnitesh.anpr.app-main-41:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.iamdevnitesh.anpr.app-merged_res-39:/drawable_svg_add_user.xml.flat",
+        "source": "com.iamdevnitesh.anpr.app-main-41:/drawable/svg_add_user.xml"
     }
 ]

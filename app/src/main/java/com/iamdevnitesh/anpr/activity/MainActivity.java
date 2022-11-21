@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
         for(License license : list){
             //canvas.drawText(license.getImg_Url(),800,100*i,paint);
             canvas.drawText(license.getLicense_plate(),20,100*i,paint);
-            canvas.drawText(license.getDate(),400,100*i,paint);
+            canvas.drawText(license.getDate().toString(),400,100*i,paint);
             // draw image
             int finalI = i;
             Picasso.get().load(license.getImg_Url()).into(new Target(){

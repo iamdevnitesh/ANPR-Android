@@ -1,13 +1,14 @@
 package com.iamdevnitesh.anpr.dataclass;
 
 public class License {
-    String license_plate, date, img_Url;
+    String license_plate, img_Url;
+    Long date;
 
     public String getLicense_plate() {
         return license_plate;
     }
 
-    public String getDate() {
+    public Long getDate() {
         return date;
     }
 

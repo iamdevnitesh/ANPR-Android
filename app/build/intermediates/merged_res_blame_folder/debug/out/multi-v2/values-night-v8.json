@@ -38,14 +38,14 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\progr\\AndroidStudioProjects\\ANPR\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "source": "C:\\Users\\progr\\AndroidStudioProjects\\ANPR-Android\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
-                        "startOffsets": "100",
+                        "startOffsets": "102",
                         "endLines": "14",
                         "endColumns": "12",
-                        "endOffsets": "793"
+                        "endOffsets": "807"
                     },
                     "to": {
                         "startLines": "2",

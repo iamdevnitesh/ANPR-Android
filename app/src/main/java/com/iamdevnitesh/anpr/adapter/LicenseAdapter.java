@@ -3,6 +3,7 @@ package com.iamdevnitesh.anpr.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +38,6 @@ public class LicenseAdapter extends RecyclerView.Adapter<LicenseAdapter.MyViewHo
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_holder, parent, false);
-        //LicenseAdapter.MyViewHolder holder = new LicenseAdapter.MyViewHolder(view);
         return new MyViewHolder(view);
     }
 
@@ -55,7 +55,13 @@ public class LicenseAdapter extends RecyclerView.Adapter<LicenseAdapter.MyViewHo
 
         // SETTING UP VALUES
         holder.license.setText("license :" + license.getLicense_plate());
-        holder.date.setText("date :" + license.getDate());
+        // unix time to date in dd-mm-yyyy hh:mm:ss format
+        Long unixDate = license.getDate();
+        Date date1 = new java.util.Date(unixDate* 1000L);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT+5:30"));
+        String formattedDate = sdf.format(date1);
+        holder.date.setText("date :" + formattedDate);
         //Using Glide to load image from firebase
         String url = license.getImg_Url();
         Picasso.get().load(url).into(holder.image);

@@ -54,6 +54,17 @@
 
         </LinearLayout>
 
+        <ProgressBar
+            android:id="@+id/pdfGenerationProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_margin="20dp"
+            android:visibility="invisible"
+            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

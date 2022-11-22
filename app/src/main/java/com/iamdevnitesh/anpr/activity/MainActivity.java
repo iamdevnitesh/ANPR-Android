@@ -1,34 +1,26 @@
 package com.iamdevnitesh.anpr.activity;
 
-import android.app.DatePickerDialog;
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.graphics.pdf.PdfDocument;
-import android.net.Uri;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.Looper;
+import android.os.StrictMode;
 import android.util.Log;
-import android.util.LruCache;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.datepicker.MaterialDatePicker;
-import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -42,15 +34,24 @@ import com.iamdevnitesh.anpr.R;
 import com.iamdevnitesh.anpr.adapter.LicenseAdapter;
 import com.iamdevnitesh.anpr.databinding.ActivityMainBinding;
 import com.iamdevnitesh.anpr.dataclass.License;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.color.DeviceGray;
+import com.itextpdf.kernel.geom.PageSize;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.UnitValue;
 
-import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     StorageReference anprStorage;
     LicenseAdapter adapter;
+    License license;
     ArrayList<License> list;
     private String usingDate = "";
 
@@ -70,10 +72,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // check writing permission and request if not granted
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            int permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            if (permission != PackageManager.PERMISSION_GRANTED) {
+                int REQUEST_CODE = 3434;
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
+            }
+        }
+
         mAuth = FirebaseAuth.getInstance();
         recyclerView = findViewById(R.id.recyclerView);
         // find todays date java
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
         String current= formatter.format(date);
         usingDate = current;
@@ -88,11 +100,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         anprDB.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    License license = dataSnapshot.getValue(License.class);
+                    license = dataSnapshot.getValue(License.class);
                     // empty the list
                     list.add(license);
                 }
@@ -105,25 +118,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         // use material date picker dialog
-        MaterialDatePicker.Builder builder = MaterialDatePicker.Builder.datePicker();
+        MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
         builder.setTitleText("Select Date");
         final MaterialDatePicker<Long> materialDatePicker = builder.build();
 
 
-        binding.FBtndateSelecter.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                materialDatePicker.show(getSupportFragmentManager(),"DATE_PICKER");
-            }
-        });
+        binding.FBtndateSelecter.setOnClickListener(v -> materialDatePicker.show(getSupportFragmentManager(),"DATE_PICKER"));
 
-        materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Long>() {
-            @Override
-            public void onPositiveButtonClick(Long selection) {
-                updateDate(selection);
-            }
-        });
+        materialDatePicker.addOnPositiveButtonClickListener(this::updateDate);
 
         binding.FBtndownload.setOnClickListener(v -> {
             generatePDF(usingDate);
@@ -131,63 +135,77 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void generatePDF(String usingDate){
-        // generate pdf from recycler view in LicenseAdapter
-        PdfDocument pdfDocument = new PdfDocument();
-        Paint paint = new Paint();
-        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(1200,2010,1).create();
-        PdfDocument.Page page = pdfDocument.startPage(pageInfo);
-        Canvas canvas = page.getCanvas();
-        paint.setColor(Color.parseColor("#FFFFFF"));
-        canvas.drawPaint(paint);
-        paint.setColor(Color.parseColor("#000000"));
-        paint.setTextSize(35);
-        canvas.drawText("License Plate",20,50,paint);
-        canvas.drawText("Date",400,50,paint);
-        canvas.drawText("Image",800,50,paint);
-        paint.setTextSize(25);
-
-        int i = 1;
-        for(License license : list){
-            //canvas.drawText(license.getImg_Url(),800,100*i,paint);
-            canvas.drawText(license.getLicense_plate(),20,100*i,paint);
-            canvas.drawText(license.getDate().toString(),400,100*i,paint);
-            // draw image
-            int finalI = i;
-            Picasso.get().load(license.getImg_Url()).into(new Target(){
-
-                @Override
-                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                    //scale the image
-                    Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, 400, 50, true);
-                    canvas.drawBitmap(scaledBitmap,800,90* finalI,paint);
-                }
-
-                @Override
-                public void onBitmapFailed(Exception e, Drawable errorDrawable) {
-
-                }
-
-                @Override
-                public void onPrepareLoad(Drawable placeHolderDrawable) {
-
-                }
-            });
-            i++;
-        }
-        pdfDocument.finishPage(page);
-        File targetPdf=Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_DOWNLOADS);
-
-        File filePath;
-        filePath = new File(targetPdf, usingDate+".pdf");
+        String destinationPath = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_DOWNLOADS)+"/"+usingDate+".pdf";
         try {
-            pdfDocument.writeTo(new FileOutputStream(filePath));
-        } catch (IOException e) {
+            PdfDocument pdfDoc = new PdfDocument(new PdfWriter(destinationPath));
+            com.itextpdf.layout.Document document = new com.itextpdf.layout.Document(pdfDoc, PageSize.A4.rotate());
+
+            float[] columnWidths = {5, 5, 5, 1};
+            Table table = new Table(UnitValue.createPercentArray(columnWidths));
+
+            Cell cell = new Cell(1, 4)
+                    .add(new Paragraph("ANPR License Plate Data"))
+                    .setFontSize(13)
+                    .setFontColor(DeviceGray.WHITE)
+                    .setBackgroundColor(DeviceGray.BLACK)
+                    .setTextAlignment(TextAlignment.CENTER);
+
+            table.addHeaderCell(cell);
+
+            for (int i = 0; i < 2; i++) {
+                Log.d("PDF","inside header for loop");
+                Cell[] headerFooter = new Cell[]{
+                        new Cell()
+                                .setTextAlignment(TextAlignment.CENTER)
+                                .setBackgroundColor(new DeviceGray(0.75f))
+                                .add(new Paragraph("S.No.")),
+                        new Cell()
+                                .setTextAlignment(TextAlignment.CENTER)
+                                .setBackgroundColor(new DeviceGray(0.75f))
+                                .add(new Paragraph("License Plate")),
+                        new Cell()
+                                .setTextAlignment(TextAlignment.CENTER)
+                                .setBackgroundColor(new DeviceGray(0.75f))
+                                .add(new Paragraph("Date")),
+                        new Cell()
+                                .setTextAlignment(TextAlignment.CENTER)
+                                .setBackgroundColor(new DeviceGray(0.75f))
+                                .add(new Paragraph("Image")),
+                };
+
+                for (Cell hfCell : headerFooter) {
+                    if (i == 0) {
+                        table.addHeaderCell(hfCell);
+                    }
+                }
+            }
+            int i=0;
+            Log.d("PDF", String.valueOf(list.size()));
+            for (License lt: list) {
+                Log.d("PDF", "inside license for loop");
+                table.addCell(new Cell().setTextAlignment(TextAlignment.CENTER).add(new Paragraph(String.valueOf(i + 1))));
+                table.addCell(new Cell().setTextAlignment(TextAlignment.CENTER).add(new Paragraph(lt.getLicense_plate())));
+                //convert date from unix to dd-mm-yyyy HH:mm:ss
+                Long unixDate = lt.getDate();
+                Date date1 = new java.util.Date(unixDate * 1000L);
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT+5:30"));
+                String formattedDate = sdf.format(date1);
+                table.addCell(new Cell().setTextAlignment(TextAlignment.CENTER).add(new Paragraph(formattedDate)));
+                ImageData imageData = ImageDataFactory.create(lt.getImg_Url());
+                Image image = new Image(imageData);
+                table.addCell(new Cell().setTextAlignment(TextAlignment.CENTER).add(image));
+                i++;
+            }
+
+        document.add(table);
+        document.close();
+        Toast.makeText(this, "PDF Generated", Toast.LENGTH_SHORT).show();
+
+        } catch (FileNotFoundException | MalformedURLException e) {
             e.printStackTrace();
-            Toast.makeText(this, "Something wrong: " + e.toString(), Toast.LENGTH_LONG).show();
         }
-        pdfDocument.close();
-        Toast.makeText(this, "PDF is created!!!", Toast.LENGTH_SHORT).show();
     }
 
     public void updateDate(Long selection){
@@ -211,6 +229,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         anprDB.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();

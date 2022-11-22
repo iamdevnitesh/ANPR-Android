@@ -18,6 +18,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
         sViewsWithIds.put(R.id.LinearLayoutBtns, 2);
         sViewsWithIds.put(R.id.FBtndateSelecter, 3);
         sViewsWithIds.put(R.id.FBtndownload, 4);
+        sViewsWithIds.put(R.id.pdfGenerationProgressBar, 5);
     }
     // views
     @NonNull
@@ -28,13 +29,14 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityMainBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 6, sIncludes, sViewsWithIds));
     }
     private ActivityMainBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[3]
             , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[4]
             , (android.widget.LinearLayout) bindings[2]
+            , (android.widget.ProgressBar) bindings[5]
             , (androidx.recyclerview.widget.RecyclerView) bindings[1]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];

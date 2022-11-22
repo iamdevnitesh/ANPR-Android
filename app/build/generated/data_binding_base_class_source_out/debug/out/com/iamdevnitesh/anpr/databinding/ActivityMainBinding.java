@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -26,15 +27,20 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   public final LinearLayout LinearLayoutBtns;
 
   @NonNull
+  public final ProgressBar pdfGenerationProgressBar;
+
+  @NonNull
   public final RecyclerView recyclerView;
 
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
       FloatingActionButton FBtndateSelecter, FloatingActionButton FBtndownload,
-      LinearLayout LinearLayoutBtns, RecyclerView recyclerView) {
+      LinearLayout LinearLayoutBtns, ProgressBar pdfGenerationProgressBar,
+      RecyclerView recyclerView) {
     super(_bindingComponent, _root, _localFieldCount);
     this.FBtndateSelecter = FBtndateSelecter;
     this.FBtndownload = FBtndownload;
     this.LinearLayoutBtns = LinearLayoutBtns;
+    this.pdfGenerationProgressBar = pdfGenerationProgressBar;
     this.recyclerView = recyclerView;
   }
 

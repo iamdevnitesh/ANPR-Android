@@ -30,6 +30,7 @@ id btnAddUser
 id dateTextView
 id licenseImageView
 id licenseTextView
+id pdfGenerationProgressBar
 id recyclerView
 layout activity_add_user
 layout activity_login

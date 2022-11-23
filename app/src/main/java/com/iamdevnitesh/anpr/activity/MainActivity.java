@@ -137,11 +137,13 @@ public class MainActivity extends AppCompatActivity {
 
         binding.FBtndownload.setOnClickListener(v -> {
             binding.pdfGenerationProgressBar.setVisibility(View.VISIBLE);
-            try {
-                generatePDF(usingDate);
-            } catch (FileNotFoundException | MalformedURLException e) {
-                e.printStackTrace();
-            }
+            new Thread(() -> {
+                try {
+                    generatePDF(usingDate);
+                } catch (FileNotFoundException | MalformedURLException e) {
+                    e.printStackTrace();
+                }
+            }).start();
         });
     }
 
@@ -212,8 +214,10 @@ public class MainActivity extends AppCompatActivity {
         doc.add(table);
         doc.close();
 
-        binding.pdfGenerationProgressBar.setVisibility(View.GONE);
-        Toast.makeText(this, "PDF Generated", Toast.LENGTH_SHORT).show();
+        runOnUiThread(() -> {
+            binding.pdfGenerationProgressBar.setVisibility(View.GONE);
+            Toast.makeText(this, "PDF Generated", Toast.LENGTH_SHORT).show();
+        });
 
     }
 

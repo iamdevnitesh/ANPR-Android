@@ -4,6 +4,8 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -40,15 +42,19 @@ import com.itextpdf.kernel.color.DeviceGray;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.UnitValue;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -58,7 +64,7 @@ import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
-    FirebaseAuth mAuth ;
+    FirebaseAuth mAuth;
     DatabaseReference anprDB;
     RecyclerView recyclerView;
     StorageReference anprStorage;
@@ -87,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         // find todays date java
         @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
-        String current= formatter.format(date);
+        String current = formatter.format(date);
         usingDate = current;
 
         anprDB = FirebaseDatabase.getInstance().getReference(current);
@@ -96,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
-        adapter = new LicenseAdapter(this,list);
+        adapter = new LicenseAdapter(this, list);
         recyclerView.setAdapter(adapter);
 
         anprDB.addValueEventListener(new ValueEventListener() {
@@ -104,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     license = dataSnapshot.getValue(License.class);
                     // empty the list
                     list.add(license);
@@ -125,90 +131,93 @@ public class MainActivity extends AppCompatActivity {
         final MaterialDatePicker<Long> materialDatePicker = builder.build();
 
 
-        binding.FBtndateSelecter.setOnClickListener(v -> materialDatePicker.show(getSupportFragmentManager(),"DATE_PICKER"));
+        binding.FBtndateSelecter.setOnClickListener(v -> materialDatePicker.show(getSupportFragmentManager(), "DATE_PICKER"));
 
         materialDatePicker.addOnPositiveButtonClickListener(this::updateDate);
 
         binding.FBtndownload.setOnClickListener(v -> {
-            generatePDF(usingDate);
+            binding.pdfGenerationProgressBar.setVisibility(View.VISIBLE);
+            try {
+                generatePDF(usingDate);
+            } catch (FileNotFoundException | MalformedURLException e) {
+                e.printStackTrace();
+            }
         });
     }
 
-    public void generatePDF(String usingDate){
+    public void generatePDF(String usingDate) throws FileNotFoundException, MalformedURLException {
         String destinationPath = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_DOWNLOADS)+"/"+usingDate+".pdf";
-        try {
-            PdfDocument pdfDoc = new PdfDocument(new PdfWriter(destinationPath));
-            com.itextpdf.layout.Document document = new com.itextpdf.layout.Document(pdfDoc, PageSize.A4.rotate());
+                Environment.DIRECTORY_DOWNLOADS) + "/" + usingDate + ".pdf";
 
-            float[] columnWidths = {5, 5, 5, 1};
-            Table table = new Table(UnitValue.createPercentArray(columnWidths));
+        float[] columnWidths = {1, 5, 5, 5};
+        Table table = new Table(UnitValue.createPercentArray(columnWidths));
 
-            Cell cell = new Cell(1, 4)
-                    .add(new Paragraph("ANPR License Plate Data"))
-                    .setFontSize(13)
-                    .setFontColor(DeviceGray.WHITE)
-                    .setBackgroundColor(DeviceGray.BLACK)
-                    .setTextAlignment(TextAlignment.CENTER);
+        PdfDocument pdfDoc = new PdfDocument(new PdfWriter(destinationPath));
+        Document doc = new Document(pdfDoc, PageSize.A4.rotate());
 
-            table.addHeaderCell(cell);
+        Cell cell = new Cell(1,6)
+                .add(new Paragraph("ANPR Report"))
+                .setFontSize(13)
+                .setFontColor(DeviceGray.WHITE)
+                .setBackgroundColor(DeviceGray.BLACK)
+                .setTextAlignment(TextAlignment.CENTER);
 
-            for (int i = 0; i < 2; i++) {
-                Log.d("PDF","inside header for loop");
-                Cell[] headerFooter = new Cell[]{
-                        new Cell()
-                                .setTextAlignment(TextAlignment.CENTER)
-                                .setBackgroundColor(new DeviceGray(0.75f))
-                                .add(new Paragraph("S.No.")),
-                        new Cell()
-                                .setTextAlignment(TextAlignment.CENTER)
-                                .setBackgroundColor(new DeviceGray(0.75f))
-                                .add(new Paragraph("License Plate")),
-                        new Cell()
-                                .setTextAlignment(TextAlignment.CENTER)
-                                .setBackgroundColor(new DeviceGray(0.75f))
-                                .add(new Paragraph("Date")),
-                        new Cell()
-                                .setTextAlignment(TextAlignment.CENTER)
-                                .setBackgroundColor(new DeviceGray(0.75f))
-                                .add(new Paragraph("Image")),
-                };
+        table.addHeaderCell(cell);
 
-                for (Cell hfCell : headerFooter) {
-                    if (i == 0) {
-                        table.addHeaderCell(hfCell);
-                    }
+        for(int i=0;i<2;i++) {
+            Cell[] headerFooter = new Cell[]{
+                    new Cell()
+                            .setTextAlignment(TextAlignment.CENTER)
+                            .setBackgroundColor(new DeviceGray(0.75f))
+                            .add(new Paragraph("S No.")),
+                    new Cell()
+                            .setTextAlignment(TextAlignment.CENTER)
+                            .setBackgroundColor(new DeviceGray(0.75f))
+                            .add(new Paragraph("License Plate")),
+                    new Cell()
+                            .setTextAlignment(TextAlignment.CENTER)
+                            .setBackgroundColor(new DeviceGray(0.75f))
+                            .add(new Paragraph("Date")),
+                    new Cell()
+                            .setTextAlignment(TextAlignment.CENTER)
+                            .setBackgroundColor(new DeviceGray(0.75f))
+                            .add(new Paragraph("Image"))
+            };
+            for(Cell hfCell : headerFooter) {
+                if(i==0) {
+                    table.addHeaderCell(hfCell);
                 }
             }
-            int i=0;
-            Log.d("PDF", String.valueOf(list.size()));
-            for (License lt: list) {
-                Log.d("PDF", "inside license for loop");
-                table.addCell(new Cell().setTextAlignment(TextAlignment.CENTER).add(new Paragraph(String.valueOf(i + 1))));
-                table.addCell(new Cell().setTextAlignment(TextAlignment.CENTER).add(new Paragraph(lt.getLicense_plate())));
-                //convert date from unix to dd-mm-yyyy HH:mm:ss
-                Long unixDate = lt.getDate();
-                Date date1 = new java.util.Date(unixDate * 1000L);
-                @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-                sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT+5:30"));
-                String formattedDate = sdf.format(date1);
-                table.addCell(new Cell().setTextAlignment(TextAlignment.CENTER).add(new Paragraph(formattedDate)));
-                ImageData imageData = ImageDataFactory.create(lt.getImg_Url());
-                Image image = new Image(imageData);
-                table.addCell(new Cell().setTextAlignment(TextAlignment.CENTER).add(image));
-                i++;
-            }
+        }
 
-        document.add(table);
-        document.close();
+        int i=0;
+        for(License lt:list){
+            table.addCell(new Cell().add(new Paragraph(String.valueOf(i+1))));
+            table.addCell(new Cell().add(new Paragraph(lt.getLicense_plate())));
+            Date date1 = new java.util.Date(lt.getDate()* 1000L);
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT+5:30"));
+            String formattedDate = sdf.format(date1);
+            table.addCell(new Cell().add(new Paragraph(formattedDate)));
+            // avoid network on main thread exception using StrictMode
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            ImageData imageData = ImageDataFactory.create(lt.getImg_Url());
+            Image image = new Image(imageData);
+            image.scaleToFit(100, 100);
+            table.addCell(new Cell().add(image));
+            i++;
+        }
+
+        doc.add(table);
+        doc.close();
+
+        binding.pdfGenerationProgressBar.setVisibility(View.GONE);
         Toast.makeText(this, "PDF Generated", Toast.LENGTH_SHORT).show();
 
-        } catch (FileNotFoundException | MalformedURLException e) {
-            e.printStackTrace();
-        }
     }
 
-    public void updateDate(Long selection){
+    public void updateDate(Long selection) {
         // Get the offset from our timezone and UTC.
         TimeZone timeZoneUTC = TimeZone.getDefault();
         // It will be negative, so that's the -1
@@ -225,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
         list = new ArrayList<>();
-        adapter = new LicenseAdapter(MainActivity.this,list);
+        adapter = new LicenseAdapter(MainActivity.this, list);
         recyclerView.setAdapter(adapter);
 
         anprDB.addValueEventListener(new ValueEventListener() {
@@ -233,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     License license = dataSnapshot.getValue(License.class);
                     // empty the list
                     list.add(license);
@@ -248,12 +257,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void addUser(MenuItem menuItem){
+    public void addUser(MenuItem menuItem) {
         startActivity(new Intent(MainActivity.this, AddUserActivity.class));
         //finish();
     }
 
-    public void logOut(MenuItem menuItem){
+    public void logOut(MenuItem menuItem) {
         mAuth.signOut();
         startActivity(new Intent(MainActivity.this, LoginActivity.class));
     }

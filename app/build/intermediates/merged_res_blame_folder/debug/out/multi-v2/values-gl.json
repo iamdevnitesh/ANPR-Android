@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.iamdevnitesh.anpr.app-mergeDebugResources-37:/values-gl/values-gl.xml",
+            "outputFile": "com.iamdevnitesh.anpr.app-mergeDebugResources-35:/values-gl/values-gl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\progr\\.gradle\\caches\\transforms-3\\3884b320dccfe5fe24360e981acf9b57\\transformed\\appcompat-1.5.1\\res\\values-gl\\values-gl.xml",

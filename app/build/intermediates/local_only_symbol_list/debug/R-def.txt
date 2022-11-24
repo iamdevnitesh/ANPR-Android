@@ -1,5 +1,7 @@
 R_DEF: Internal format may change without notice
 local
+color ActionBar
+color BtnLogin
 color black
 color purple_200
 color purple_500
@@ -39,6 +41,7 @@ layout item_holder
 menu menu_bar
 mipmap ic_launcher
 mipmap ic_launcher_round
+raw anim_login
 string app_name
 string default_web_client_id
 string firebase_database_url

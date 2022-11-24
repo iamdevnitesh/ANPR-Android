@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -78,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle("ANPR Report");
+        ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.ActionBar));
+        ab.setBackgroundDrawable(colorDrawable);
 
         // check writing permission and request if not granted
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

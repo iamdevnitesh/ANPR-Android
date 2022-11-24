@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.iamdevnitesh.anpr.app-mergeDebugResources-37:/values-pt/values-pt.xml",
+            "outputFile": "com.iamdevnitesh.anpr.app-mergeDebugResources-35:/values-pt/values-pt.xml",
             "map": [
                 {
                     "source": "C:\\Users\\progr\\.gradle\\caches\\transforms-3\\7941da3a4176cc86aa5dcbb619fbea47\\transformed\\browser-1.4.0\\res\\values-pt\\values-pt.xml",

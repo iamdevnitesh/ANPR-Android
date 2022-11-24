@@ -3,6 +3,7 @@ local
 color ActionBar
 color BtnLogin
 color black
+color ic_launcher_background
 color purple_200
 color purple_500
 color purple_700
@@ -40,6 +41,7 @@ layout activity_main
 layout item_holder
 menu menu_bar
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 raw anim_login
 string app_name

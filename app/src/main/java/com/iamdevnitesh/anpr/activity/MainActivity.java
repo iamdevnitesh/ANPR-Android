@@ -4,14 +4,11 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -51,11 +48,7 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.UnitValue;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
@@ -82,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         ActionBar ab = getSupportActionBar();
+        assert ab != null;
         ab.setTitle("ANPR Report");
         ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.ActionBar));
         ab.setBackgroundDrawable(colorDrawable);

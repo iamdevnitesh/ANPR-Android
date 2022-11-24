@@ -40,7 +40,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_margin="20dp"
-                />
+                android:contentDescription="@string/date_FAB" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/FBtndownload"
@@ -50,7 +50,7 @@
                 app:layout_constraintTop_toTopOf="@id/FBtndateSelecter"
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_margin="20dp"
-                />
+                android:contentDescription="@string/save_FAB" />
 
         </LinearLayout>
 

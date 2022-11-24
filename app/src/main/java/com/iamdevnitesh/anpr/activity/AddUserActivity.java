@@ -1,6 +1,5 @@
 package com.iamdevnitesh.anpr.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,9 +10,6 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.iamdevnitesh.anpr.R;
 import com.iamdevnitesh.anpr.databinding.ActivityAddUserBinding;
@@ -29,6 +25,7 @@ public class AddUserActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         ActionBar ab = getSupportActionBar();
+        assert ab != null;
         ab.setTitle("Register User");
         ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.ActionBar));
         ab.setBackgroundDrawable(colorDrawable);
@@ -54,23 +51,13 @@ public class AddUserActivity extends AppCompatActivity {
             binding.EdtTxtPassword.requestFocus();
         } else {
             mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                //Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
-                                Toast.makeText(AddUserActivity.this, "Registeration Complete", Toast.LENGTH_SHORT).show();
-                                // start activity after 2 seconds of delay
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        startActivity(new Intent(AddUserActivity.this, MainActivity.class));
-                                    }
-                                }, 2000);
-                            }
-                            else {
-                                //Log.d(TAG, "onComplete: Failed=" + task.getException().getMessage()); //ADD THIS
-                                Toast.makeText(AddUserActivity.this, "Registeration Failed",Toast.LENGTH_SHORT).show();
-                            }
+                    .addOnCompleteListener(this, task -> {
+                        if(task.isSuccessful()){
+                            Toast.makeText(AddUserActivity.this, "Registeration Complete", Toast.LENGTH_SHORT).show();
+                            new Handler().postDelayed(() -> startActivity(new Intent(AddUserActivity.this, MainActivity.class)), 2000);
+                        }
+                        else {
+                            Toast.makeText(AddUserActivity.this, "Registeration Failed",Toast.LENGTH_SHORT).show();
                         }
                     });
         }

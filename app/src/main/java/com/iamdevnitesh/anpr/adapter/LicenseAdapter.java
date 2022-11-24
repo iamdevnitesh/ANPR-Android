@@ -11,8 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.iamdevnitesh.anpr.R;
 import com.iamdevnitesh.anpr.dataclass.License;
 import com.squareup.picasso.Picasso;
@@ -38,15 +36,9 @@ public class LicenseAdapter extends RecyclerView.Adapter<LicenseAdapter.MyViewHo
         return new MyViewHolder(view);
     }
 
-    @SuppressLint("ResourceType")
+    @SuppressLint({"ResourceType", "SetTextI18n"})
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        // calculate todays date
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        Date date = new Date();
-        String current = formatter.format(date);
-        // storage refernce
-        StorageReference anprStorage = FirebaseStorage.getInstance().getReference(current);
         // license position
         License license = list.get(position);
 
@@ -55,7 +47,7 @@ public class LicenseAdapter extends RecyclerView.Adapter<LicenseAdapter.MyViewHo
         // unix time to date in dd-mm-yyyy hh:mm:ss format
         Long unixDate = license.getDate();
         Date date1 = new java.util.Date(unixDate* 1000L);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT+5:30"));
         String formattedDate = sdf.format(date1);
         holder.date.setText("date :" + formattedDate);

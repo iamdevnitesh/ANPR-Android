@@ -4,6 +4,14 @@
         "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-39:\\layout\\activity_add_user.xml"
     },
     {
+        "merged": "com.iamdevnitesh.anpr.app-mergeDebugResources-36:/layout/activity_login.xml",
+        "source": "com.iamdevnitesh.anpr.app-main-39:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.iamdevnitesh.anpr.app-mergeDebugResources-36:/layout/item_holder.xml",
+        "source": "com.iamdevnitesh.anpr.app-main-39:/layout/item_holder.xml"
+    },
+    {
         "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-mergeDebugResources-36:\\layout\\activity_login.xml",
         "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-39:\\layout\\activity_login.xml"
     },
@@ -14,6 +22,10 @@
     {
         "merged": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-mergeDebugResources-36:\\layout\\activity_main.xml",
         "source": "C:\\Users\\progr\\.gradle\\daemon\\7.4\\com.iamdevnitesh.anpr.app-main-39:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.iamdevnitesh.anpr.app-mergeDebugResources-36:/layout/activity_main.xml",
+        "source": "com.iamdevnitesh.anpr.app-main-39:/layout/activity_main.xml"
     },
     {
         "merged": "com.iamdevnitesh.anpr.app-mergeDebugResources-36:/layout/activity_add_user.xml",

@@ -42,7 +42,7 @@
                 android:layout_height="match_parent"
                 android:textCursorDrawable="@drawable/cursor"
                 android:drawableStart="@drawable/svg_user"
-                android:hint="Enter Email"
+                android:hint="@string/enter_email"
                 android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -65,7 +65,7 @@
                 android:layout_height="match_parent"
                 android:textCursorDrawable="@drawable/cursor"
                 android:drawableStart="@drawable/svg_key"
-                android:hint="Enter Password"
+                android:hint="@string/enter_password"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -79,7 +79,7 @@
             app:layout_constraintTop_toBottomOf="@id/EdtTxtLayoutPassword"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:text="Login" />
+            android:text="@string/login" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

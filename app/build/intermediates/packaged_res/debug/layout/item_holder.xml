@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
@@ -27,7 +28,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:text="License Plate :" />
+                android:text="@string/license_plate"
+                tools:ignore="NestedWeights" />
 
             <TextView
                 android:id="@+id/dateTextView"
@@ -35,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:text="Date :" />
+                android:text="@string/date" />
 
         </LinearLayout>
 
@@ -45,7 +47,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            />
+            android:contentDescription="@string/Img_Report" />
 
     </LinearLayout>
 
